@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Display error messages if any -->
+    {% for message in messages %}
+    <div class="alert alert-danger mt-5">
+        <h5 class="text-center">{{ message }}</h5>
+    </div>
+    {% endfor %}
+
+    <!-- Login Form -->
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-4">
+                <h3 class="text-center mb-4">Login</h3>
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    
+                    <!-- Username Field -->
+                    <div class="form-group mb-3">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" class="form-control" id="username" placeholder="Enter your username" required>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group mb-3">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" required>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

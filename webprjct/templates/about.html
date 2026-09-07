@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-image: url('');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        height: 100vh;
+        color: white;
+    }
+    .container {
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 10px;
+    }
+</style>
+
+<div class="container">
+    {% for msg in messages %}
+    <h1 style="color: blueviolet; text-align:center;">{{ msg }}</h1>
+    {% endfor %}
+    <a href="{% url 'logout' %}" class="btn btn-info w-100">LOG OUT</a>
+</div>
+{% endblock %}
